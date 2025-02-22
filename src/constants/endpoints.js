@@ -13,3 +13,9 @@ export const fetchApi = async (req = { method: 'GET' }) => {
         throw new Error(`Error: ${error}`);
     }
 }
+
+export const endpoints = {
+    LOGIN: 'http://localhost:4000/login',
+    REGISTER: 'http://localhost:4000/register',
+    HOMEPAGE: 'http://localhost:4000/home',
+}

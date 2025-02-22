@@ -4,17 +4,12 @@ import { fetchRequest } from "./actions";
 import Snackbar from '@mui/material/Snackbar';
 
 const App = () => {
-  const dispatch = useDispatch();
   const [message, setMessage] = useState({ opened: false, message: '' });
   const { data, loading, error } = useSelector((state) => state.data);
 
   useEffect(() => {
-    dispatch(fetchRequest()); // Trigger API call when component mounts
-  }, [dispatch]);
-
-  useEffect(() => {
     if (error) {
-      console.log('eror', error)
+      console.log('error', error)
       setMessage({ opened: true, message: error })
     }
   }, [data, loading, error])
