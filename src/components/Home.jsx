@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { endpoints } from "../constants/endpoints";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHomepage } from "../actions";
+import classes from './Home.module.css'
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -13,7 +14,7 @@ import Typography from '@mui/material/Typography';
 function Home() {
   // const dispatch = useDispatch();
 
-  // const { homepage } = useSelector((state) => state.data);
+  // const { homepage } = useSelector((state) => state.dataReducer);
   let homepage = {
     title: 'Latest Health Updaes',
     content: [{
@@ -66,13 +67,13 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className={classes.padding}>
       <Typography variant="h4" component="div">
         {homedata?.title}
       </Typography>
       {homedata?.content?.map((item, i) => {
         return (
-          <div style={{ padding: '15px' }} key={i}>
+          <div className={classes.padding} key={i}>
             <Card variant="outlined">
               <CardContent>
                 <Typography variant="h6" component="div">

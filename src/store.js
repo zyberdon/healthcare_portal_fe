@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Combine reducers
 const rootReducer = combineReducers({
-    data: dataReducer,
+    dataReducer
 });
 
 // Create store with middleware

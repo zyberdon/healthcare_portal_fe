@@ -6,7 +6,7 @@ import LocalRoutes from './routes.jsx'
 
 export const App = (props) => {
   const [message, setMessage] = useState({ opened: false, message: '' });
-  const { data, loading, error } = useSelector((state) => state.data);
+  const { data, loading, error, loginStats } = useSelector((state) => state.dataReducer);
 
   useEffect(() => {
     if (error) {
@@ -15,7 +15,12 @@ export const App = (props) => {
     }
   }, [data, loading, error])
 
-  function handleClose() {
+  useEffect(() => {
+    console.log(loginStats)
+  }, [loginStats]);
+
+
+  const handleClose = () => {
     setMessage({ opened: false, message: '' })
   }
   return (

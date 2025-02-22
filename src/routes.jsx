@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import Header from "./components/Header";
 
 function LocalRoutes(props) {
+    console.log(props)
     return (<div>
         <Router>
             <Header {...props} />
