@@ -9,7 +9,7 @@ function Header(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            My App
+            Healthcare Portal
           </Typography>
 
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
