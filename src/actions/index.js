@@ -20,5 +20,5 @@ export const getLogin = (data) => {
     return { type: GET_LOGIN, payload: data }
 }; //data obj should contain url and reqbody which inturn has body and req type
 
-export const postContact = (data) => ({ type: FETCH_HOMEPAGE, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
-export const getContact = (data) => ({ type: STORE_HOMEPAGE, payload: data }); //data obj 
+export const postContact = (data) => ({ type: POST_CONTACT, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
+export const getContact = (data) => ({ type: GET_CONTACT, payload: data }); //data obj 
