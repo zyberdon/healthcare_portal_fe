@@ -4,7 +4,7 @@ export const fetchApi = async (req) => {
 
         const response = await fetch(url, {
             ...reqBody,
-            //  headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(reqBody.body)
         });
         if (!response.ok) {
