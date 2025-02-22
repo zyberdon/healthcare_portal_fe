@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchRequest } from "./actions";
 import Snackbar from '@mui/material/Snackbar';
-
-const App = () => {
+import LocalRoutes from './routes.jsx'
+const App = (props) => {
   const [message, setMessage] = useState({ opened: false, message: '' });
   const { data, loading, error } = useSelector((state) => state.data);
 
@@ -26,11 +26,8 @@ const App = () => {
         onClose={() => handleClose()}
         message={message.message}
       />
-      <h1>Redux-Saga Example</h1>
-      {loading && <p>Loading...</p>}
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+
+      <LocalRoutes {...props} />
     </div>
   );
 };
-
-export default App;
