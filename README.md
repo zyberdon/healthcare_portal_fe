@@ -42,7 +42,7 @@ The app will be available at: http://localhost:5173/
 React, React DOM, React Router DOM, React Redux, Redux, Redux-Saga, and Material-UI.
 
 🔑 Authentication (Login & Register)
-
+** Please edit host in endpoints.js file**
 Login Request Example
 
 const req = {
