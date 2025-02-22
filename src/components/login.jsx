@@ -16,8 +16,9 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    let req = {}
     if (isLogin) {
-      let req = {
+      req = {
         url: endpoints.LOGIN,
         reqBody: {
           method: 'POST',
@@ -26,10 +27,26 @@ function Login() {
             password: e.target.pass.value
           }
         }
+      } 
       }
+    else {
+         req = {
+            url: endpoints.REGISTER,
+            reqBody: {
+              method: 'POST',
+              body: {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                phone: e.target.phone.value,
+                password: e.target.password.value,
+                confirmpassword: e.target.confirmpassword.value
+              }
+            }
+          } 
+    }
       dispatch(postLogin(req));
     }
-  }
+  
 
   useEffect(() => {
     if (loginStats && loginStats.message === 'User logged in successfully') {
@@ -74,13 +91,12 @@ function Login() {
               </Typography>
             </>
           ) : (
-            /* If Register Page */
             <>
-              <TextField fullWidth label="Name" margin="normal" />
-              <TextField fullWidth label="Email" margin="normal" />
-              <TextField fullWidth label="Phone Number" margin="normal" />
-              <TextField fullWidth label="Password" type="password" margin="normal" />
-              <TextField fullWidth label="Confirm Password" type="password" margin="normal" />
+              <TextField fullWidth label="Name" id="name" margin="normal" />
+              <TextField fullWidth label="Email" id="email" margin="normal" />
+              <TextField fullWidth label="Phone Number" id="phone" margin="normal" />
+              <TextField fullWidth label="Password" type="password" id="password" margin="normal" />
+              <TextField fullWidth label="Confirm Password" type="password" id="confirmpassword" margin="normal" />
               <Button fullWidth type="submit" variant="contained" sx={{ mt: 2 }}>
                 Register
               </Button>
@@ -96,6 +112,6 @@ function Login() {
       </Box>
     </Container>
   );
-}
+};
 
 export default Login;

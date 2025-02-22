@@ -58,7 +58,7 @@ function Profile() {
             {/* <ListItem button component={Link} to="">
               <ListItemText primary="Settings" />
             </ListItem> */}
-            <ListItem button component={Link} to="/logout">
+            <ListItem button component={Link} to="/">
               <ListItemText primary="Logout" />
             </ListItem>
           </List>

@@ -2,6 +2,27 @@ import React from "react";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
 
 function Contact() {
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let req = {}
+        if (isLogin) {
+          req = {
+            url: endpoints.LOGIN,
+            reqBody: {
+              method: 'POST',
+              body: {
+                email: e.target.name.value,
+                password: e.target.email.value,
+                email: e.target.message.value,
+              }
+            }
+          } 
+          }
+          dispatch(postLogin(req));
+        };
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -16,11 +37,12 @@ function Contact() {
         <Typography variant="h5" gutterBottom>
           Contact Us
         </Typography>
-
-        <TextField fullWidth label="Name" margin="normal" />
-        <TextField fullWidth label="Email" type="email" margin="normal" />
+        <form onSubmit={handleSubmit}>
+        <TextField fullWidth id="name" label="Name" margin="normal" />
+        <TextField fullWidth id="email" label="Email" type="email" margin="normal" />
         <TextField
           fullWidth
+          id="message"
           label="Message"
           multiline
           rows={4}   
@@ -30,6 +52,7 @@ function Contact() {
         <Button fullWidth variant="contained" sx={{ mt: 2 }}>
           Submit
         </Button>
+        </form>
       </Box>
     </Container>
   );
