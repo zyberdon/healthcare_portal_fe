@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchRequest } from "./actions";
 import Snackbar from '@mui/material/Snackbar';
 import LocalRoutes from './routes.jsx'
-const App = (props) => {
+
+export const App = (props) => {
   const [message, setMessage] = useState({ opened: false, message: '' });
   const { data, loading, error } = useSelector((state) => state.data);
 
@@ -31,3 +32,4 @@ const App = (props) => {
     </div>
   );
 };
+export default App;
