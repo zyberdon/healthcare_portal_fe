@@ -39,15 +39,7 @@ The app will be available at: http://localhost:5173/
 
 📦 Dependencies
 
-"dependencies": {
-  "@mui/material": "latest",
-  "react": "latest",
-  "react-dom": "latest",
-  "react-router-dom": "latest",
-  "react-redux": "latest",
-  "redux": "latest",
-  "redux-saga": "latest"
-}
+React, React DOM, React Router DOM, React Redux, Redux, Redux-Saga, and Material-UI.
 
 🔑 Authentication (Login & Register)
 
@@ -79,11 +71,3 @@ CTRL + C
 📝 License
 
 This project is open-source and available under the MIT License.
-
-📩 Contact
-
-For any issues or contributions, feel free to open an issue or submit a pull request!
-
-Project URL: GitHub Repository
-
-Happy Coding! 🎉
