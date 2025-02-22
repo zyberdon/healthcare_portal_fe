@@ -9,7 +9,6 @@ function Login() {
   const dispatch = useDispatch();
   // const { loginStats } = useSelector((state) => state.login);
 
-  // Toggle between Login and Register
   const toggleAuthMode = () => setIsLogin(!isLogin);
 
   const handleSubmit = (e) => {

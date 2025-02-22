@@ -7,8 +7,9 @@ import Home from "./components/Home";
 import Login from "./components/login";
 import Services from "./components/Services";
 import HealthTopics from "./components/HealthTopics";
-import Contact from "./components/Contact";
+import Contact from "./components/contact";
 import Header from "./components/Header";
+import Profile from "./components/Profile";
 
 function LocalRoutes(props) {
     console.log(props)
@@ -22,6 +23,7 @@ function LocalRoutes(props) {
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/healthtopics" element={<HealthTopics />} />
+                <Route path="/profile" element={<Profile/>} />
             </Routes>
         </Router></div>
     );
