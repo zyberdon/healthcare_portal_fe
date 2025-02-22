@@ -12,7 +12,7 @@ export const fetchApi = async (req) => {
         }
 
         const json = await response.json();
-        console.log(json);
+        return json;
     } catch (error) {
         throw new Error(`Error: ${error}`);
     }

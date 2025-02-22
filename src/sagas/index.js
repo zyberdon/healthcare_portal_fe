@@ -30,6 +30,7 @@ function* fetchHomepage(payload) {
 function* postlogin(payload) {
     try {
         const data = yield call(fetchApi, payload);
+        console.log(data)
         yield put(getLogin(data)); // Dispatch success action
     } catch (error) {
         yield put(getLogin({ error: error.message })); // Dispatch failure action

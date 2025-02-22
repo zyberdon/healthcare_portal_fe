@@ -15,7 +15,7 @@ function LocalRoutes(props) {
     console.log(props)
     return (<div>
         <Router>
-            <Header {...props} />
+            {!props.loggedin && <Header {...props} />}
 
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ function LocalRoutes(props) {
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/healthtopics" element={<HealthTopics />} />
-                <Route path="/profile" element={<Profile/>} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </Router></div>
     );

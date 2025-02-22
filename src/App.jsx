@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchRequest } from "./actions";
 import Snackbar from '@mui/material/Snackbar';
 import LocalRoutes from './routes.jsx'
+// import { useNavigate } from "react-router";
 
 export const App = (props) => {
   const [message, setMessage] = useState({ opened: false, message: '' });
   const { data, loading, error, loginStats } = useSelector((state) => state.dataReducer);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (error) {
@@ -16,7 +18,12 @@ export const App = (props) => {
   }, [data, loading, error])
 
   useEffect(() => {
-    console.log(loginStats)
+    if (loginStats.message === 'User logged in successfully')
+      setMessage({ opened: true, message: loginStats.message })
+    // // if (loginStats.message === 'User logged in successfully') {
+    //   navigate("/profile")
+    // }
+
   }, [loginStats]);
 
 
@@ -33,7 +40,7 @@ export const App = (props) => {
         message={message.message}
       />
 
-      <LocalRoutes {...props} />
+      <LocalRoutes {...props} loggedin={loginStats?.message === 'User logged in successfully'} />
     </div>
   );
 };

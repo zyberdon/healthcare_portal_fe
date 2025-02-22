@@ -14,4 +14,7 @@ export const fetchFailure = (error) => ({ type: FETCH_FAILURE, payload: error })
 export const fetchHomepage = (data) => ({ type: FETCH_HOMEPAGE, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
 export const storeHomepage = (data) => ({ type: STORE_HOMEPAGE, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
 export const postLogin = (data) => ({ type: POST_LOGIN, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
-export const getLogin = (data) => ({ type: GET_LOGIN, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
+export const getLogin = (data) => {
+    console.log(data);
+    return { type: GET_LOGIN, payload: data }
+}; //data obj should contain url and reqbody which inturn has body and req type

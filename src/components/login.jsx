@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { TextField, Button, Typography, Container, Box, Link } from "@mui/material";
 import { endpoints } from "../constants/endpoints";
 import { postLogin } from "../actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const dispatch = useDispatch();
   // const { loginStats } = useSelector((state) => state.login);
+  const { data, loading, error, loginStats } = useSelector((state) => state.dataReducer);
+  const navigate = useNavigate();
 
   const toggleAuthMode = () => setIsLogin(!isLogin);
 
@@ -27,6 +30,14 @@ function Login() {
       dispatch(postLogin(req));
     }
   }
+
+  useEffect(() => {
+    if (loginStats.message === 'User logged in successfully') {
+      navigate("/profile")
+    }
+
+  }, [loginStats]);
+
 
   return (
     <Container maxWidth="xs">
