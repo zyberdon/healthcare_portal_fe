@@ -32,8 +32,11 @@ function Login() {
   }
 
   useEffect(() => {
-    if (loginStats.message === 'User logged in successfully') {
+    if (loginStats && loginStats.message === 'User logged in successfully') {
       navigate("/profile")
+    }
+    if (loginStats && loginStats.message === 'User registered successfully') {
+      navigate("/login")
     }
 
   }, [loginStats]);
