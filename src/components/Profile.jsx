@@ -52,12 +52,12 @@ function Profile() {
             <ListItem button component={Link} to="/">
               <ListItemText primary="Home" />
             </ListItem>
-            <ListItem button component={Link} to="/profile">
+            {/* <ListItem button component={Link} to="/profile">
               <ListItemText primary="Profile" />
-            </ListItem>
-            <ListItem button component={Link} to="/settings">
+            </ListItem> */}
+            {/* <ListItem button component={Link} to="">
               <ListItemText primary="Settings" />
-            </ListItem>
+            </ListItem> */}
             <ListItem button component={Link} to="/logout">
               <ListItemText primary="Logout" />
             </ListItem>
@@ -104,7 +104,7 @@ function Profile() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                John Doe is a software engineer with 5 years of experience in full-stack development. He loves coding, reading, and hiking.
+                User is a software engineer with 5 years of experience in full-stack development. He loves coding, reading, and hiking.
               </Typography>
             </AccordionDetails>
           </Accordion>
