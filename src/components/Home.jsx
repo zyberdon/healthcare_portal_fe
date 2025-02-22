@@ -1,35 +1,92 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { endpoints } from "../constants/endpoints";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHomepage } from "../actions";
+
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 function Home() {
+  // const dispatch = useDispatch();
+
+  // const { homepage } = useSelector((state) => state.data);
+  let homepage = {
+    title: 'Latest Health Updaes',
+    content: [{
+      title: 'ABCD COVID',
+      subHeading: 'Subheading Subheading Subheading Subheading',
+      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
+    },
+    {
+      title: 'ABCD COVID',
+      subHeading: 'Subheading Subheading Subheading Subheading',
+      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
+    },
+    {
+      title: 'ABCD COVID',
+      subHeading: 'Subheading Subheading Subheading Subheading',
+      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
+    }, {
+      title: 'ABCD COVID',
+      subHeading: 'Subheading Subheading Subheading Subheading',
+      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
+    }]
+  }
+  const [homedata, setHomedata] = useState(homepage)
+
+  // const homereq = {
+  //   url: endpoints.HOMEPAGE,
+  //   method: 'GET'
+  // }
+
+  // useEffect(() => {
+  //   dispatch(fetchHomepage({ url: endpoints.HOMEPAGE })); // Trigger API call when component mounts
+  // }, [dispatch]);
+
+
+  // useEffect(() => {
+  //   setHomedata(homepage)
+  // }, [homepage]);
+
+  function readmoreClick(id) {
+    const data = homedata.content[id];
+    const data1 = { ...data };
+    data1.subHeading = data1.readmore
+    data1.readmore = ''
+    const homedatacopy = { ...homedata }
+    homedatacopy.content[id] = data1
+    setHomedata({
+      ...homedatacopy,
+    })
+
+  }
+
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            My App
-          </Typography>
-
-          <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-            <Button color="inherit" component={Link} to="/healthtopics">Health Topics</Button>
-            <Button color="inherit" component={Link} to="/services">Services</Button>
-            <Button color="inherit" component={Link} to="/contact">Contact</Button>
-          </Box>
-
-          <Button color="inherit" component={Link} to="/login">
-            Login
-          </Button>
-        </Toolbar>
-      </AppBar>
-
-      {/* Main Content */}
-      <Box sx={{ textAlign: "center", mt: 5 }}>
-        <Typography variant="h4">Welcome to the Home Page</Typography>
-        <Button variant="contained" color="primary" sx={{ mt: 3 }} component={Link} to="/login">
-          Go to Login
-        </Button>
-      </Box>
+      <Typography variant="h4" component="div">
+        {homedata?.title}
+      </Typography>
+      {homedata?.content?.map((item, i) => {
+        return (
+          <div style={{ padding: '15px' }} key={i}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h6" component="div">
+                  {item.title}
+                </Typography>
+                <Typography variant="body2">
+                  {item.subHeading}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                {item.readmore && <Button size="small" onClick={() => readmoreClick(i)}>Read More</Button>}
+              </CardActions>
+            </Card></div>)
+      })}
     </div>
   );
 }

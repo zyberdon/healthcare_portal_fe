@@ -1,4 +1,4 @@
-export const fetchApi = async (req = { method: 'GET' }) => {
+export const fetchApi = async (req = { url: '', reqBody: { method: 'GET' } }) => {
     const { url, reqBody } = req
     try {
 

@@ -1,14 +1,20 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { Link } from "react-router-dom";
+
 import Home from "./components/Home";
 import Login from "./components/login";
 import Services from "./components/Services";
-import Contact from "./components/contact";
 import HealthTopics from "./components/HealthTopics";
+import Contact from "./components/Contact";
+import Header from "./components/Header";
 
-function LocalRoutes() {
-    return (
+function LocalRoutes(props) {
+    return (<div>
         <Router>
+            <Header {...props} />
+
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
@@ -16,7 +22,7 @@ function LocalRoutes() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/healthtopics" element={<HealthTopics />} />
             </Routes>
-        </Router>
+        </Router></div>
     );
 }
 

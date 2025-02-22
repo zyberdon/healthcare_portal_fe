@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { FETCH_REQUEST, fetchSuccess, fetchFailure } from "../actions";
+import { FETCH_REQUEST, fetchSuccess, fetchFailure, FETCH_HOMEPAGE, storeHomepage } from "../actions";
 import { fetchApi } from '../constants/endpoints'
 // API Call Function
 // const fetchDataApi = async () => {
@@ -17,7 +17,19 @@ function* fetchDataSaga(payload) {
     }
 }
 
+
+function* fetchHomepage(payload) {
+    try {
+        const data = yield call(fetchApi(payload));
+        yield put(storeHomepage(data)); // Dispatch success action
+    } catch (error) {
+        yield put(storeHomepage({ error: error.message })); // Dispatch failure action
+    }
+}
+
+
 // Saga Watcher Function
 export default function* dataSaga() {
     yield takeLatest(FETCH_REQUEST, fetchDataSaga);
+    yield takeLatest(FETCH_HOMEPAGE, fetchHomepage);
 }
