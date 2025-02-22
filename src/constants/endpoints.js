@@ -21,5 +21,5 @@ export const fetchApi = async (req) => {
 export const endpoints = {
     LOGIN: 'http://10.138.176.213:5000/api/auth/login',
     REGISTER: 'http://10.138.176.213:5000/api/auth/register',
-    HOMEPAGE: 'http://localhost:4000/home',
+    HOMEPAGE: 'http://10.138.176.213:5000/api/home',
 }

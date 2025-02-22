@@ -15,51 +15,30 @@ import Typography from '@mui/material/Typography';
 //this com
 
 function Home() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const { homepage } = useSelector((state) => state.dataReducer);
-  let homepage = {
-    title: 'Latest Health Updaes',
-    content: [{
-      title: 'ABCD COVID',
-      subHeading: 'Subheading Subheading Subheading Subheading',
-      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
-    },
-    {
-      title: 'ABCD COVID',
-      subHeading: 'Subheading Subheading Subheading Subheading',
-      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
-    },
-    {
-      title: 'ABCD COVID',
-      subHeading: 'Subheading Subheading Subheading Subheading',
-      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
-    }, {
-      title: 'ABCD COVID',
-      subHeading: 'Subheading Subheading Subheading Subheading',
-      readmore: 'Subheading vvvSubheadingSubheadingv SubheadingSubheadingv SubheadingSubheadingSubheading Subheadingv'
-    }]
+  const { homepage } = useSelector((state) => state.dataReducer);
+  const [homedata, setHomedata] = useState({})
+  const homereq = {
+    url: endpoints.HOMEPAGE,
+    reqBody: {
+      method: 'GET'
+    }
   }
-  const [homedata, setHomedata] = useState(homepage)
 
-  // const homereq = {
-  //   url: endpoints.HOMEPAGE,
-  //   method: 'GET'
-  // }
-
-  // useEffect(() => {
-  //   dispatch(fetchHomepage({ url: endpoints.HOMEPAGE })); // Trigger API call when component mounts
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchHomepage(homereq)); // Trigger API call when component mounts
+  }, [dispatch]);
 
 
-  // useEffect(() => {
-  //   setHomedata(homepage)
-  // }, [homepage]);
+  useEffect(() => {
+    setHomedata(homepage)
+  }, [homepage]);
 
   function readmoreClick(id) {
     const data = homedata.content[id];
     const data1 = { ...data };
-    data1.subHeading = data1.readmore
+    data1.description = data1.readmore
     data1.readmore = ''
     const homedatacopy = { ...homedata }
     homedatacopy.content[id] = data1
@@ -83,7 +62,7 @@ function Home() {
                   {item.title}
                 </Typography>
                 <Typography variant="body2">
-                  {item.subHeading}
+                  {item.description}
                 </Typography>
               </CardContent>
               <CardActions>

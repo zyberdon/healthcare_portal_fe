@@ -20,7 +20,7 @@ function* fetchDataSaga(payload) {
 
 function* fetchHomepage(payload) {
     try {
-        const data = yield call(fetchApi(payload));
+        const data = yield call(fetchApi, payload);
         yield put(storeHomepage(data)); // Dispatch success action
     } catch (error) {
         yield put(storeHomepage({ error: error.message })); // Dispatch failure action
