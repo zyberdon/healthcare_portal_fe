@@ -18,12 +18,15 @@ export const App = (props) => {
   }, [data, loading, error])
 
   useEffect(() => {
-    if (loginStats.message === 'User logged in successfully')
+    if (loginStats && !loginStats.error && loginStats.message === 'User logged in successfully') {
       setMessage({ opened: true, message: loginStats.message })
-    // // if (loginStats.message === 'User logged in successfully') {
-    //   navigate("/profile")
-    // }
-
+      document.cookie = `token=${loginStats.token}; path=/; Secure; SameSite=Strict`;
+      //should be set from server side,not on client
+    }
+    else if (loginStats && !loginStats.error && (loginStats.message || loginStats.msg)) {
+      let msg = loginStats.message || loginStats.msg
+      setMessage({ opened: true, message: msg })
+    }
   }, [loginStats]);
 
 
