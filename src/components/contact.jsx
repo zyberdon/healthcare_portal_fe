@@ -1,27 +1,30 @@
 import React from "react";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { endpoints } from "../constants/endpoints";
+import { postContact } from "../actions";
 
 function Contact() {
+  const dispatch = useDispatch();
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        let req = {}
-        if (isLogin) {
-          req = {
-            url: endpoints.LOGIN,
-            reqBody: {
-              method: 'POST',
-              body: {
-                email: e.target.name.value,
-                password: e.target.email.value,
-                email: e.target.message.value,
-              }
-            }
-          } 
-          }
-          dispatch(postLogin(req));
-        };
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let req = {}
+    req = {
+      url: endpoints.CONTACT,
+      reqBody: {
+        method: 'POST',
+        body: {
+          username: e.target.name.value,
+          email: e.target.email.value,
+          message: e.target.message.value,
+        }
+
+      }
+    }
+    dispatch(postContact(req));
+  };
 
   return (
     <Container maxWidth="sm">
@@ -38,20 +41,20 @@ function Contact() {
           Contact Us
         </Typography>
         <form onSubmit={handleSubmit}>
-        <TextField fullWidth id="name" label="Name" margin="normal" />
-        <TextField fullWidth id="email" label="Email" type="email" margin="normal" />
-        <TextField
-          fullWidth
-          id="message"
-          label="Message"
-          multiline
-          rows={4}   
-          margin="normal"
-        />
+          <TextField fullWidth id="name" label="Name" margin="normal" />
+          <TextField fullWidth id="email" label="Email" type="email" margin="normal" />
+          <TextField
+            fullWidth
+            id="message"
+            label="Message"
+            multiline
+            rows={4}
+            margin="normal"
+          />
 
-        <Button fullWidth variant="contained" sx={{ mt: 2 }}>
-          Submit
-        </Button>
+          <Button fullWidth type='submit' variant="contained" sx={{ mt: 2 }}>
+            Submit
+          </Button>
         </form>
       </Box>
     </Container>

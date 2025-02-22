@@ -22,4 +22,5 @@ export const endpoints = {
     LOGIN: 'http://10.138.176.213:5000/api/auth/login',
     REGISTER: 'http://10.138.176.213:5000/api/auth/register',
     HOMEPAGE: 'http://10.138.176.213:5000/api/home',
+    CONTACT: 'http://10.138.176.213:5000/api/contact',
 }

@@ -30,7 +30,7 @@ export const App = (props) => {
   }, [loginStats]);
 
   useEffect(() => {
-    if (contactResp) {
+    if (contactResp && contactResp.contact && contactResp.message) {
       let msg = contactResp.message
       setMessage({ opened: true, message: msg })
     }
