@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { FETCH_REQUEST, fetchSuccess, fetchFailure, FETCH_HOMEPAGE, storeHomepage, POST_LOGIN, getLogin } from "../actions";
+import { FETCH_REQUEST, fetchSuccess, fetchFailure, FETCH_HOMEPAGE, storeHomepage, POST_LOGIN, getLogin, getContact, POST_CONTACT } from "../actions";
 import { fetchApi } from '../constants/endpoints'
 // API Call Function
 // const fetchDataApi = async () => {
@@ -54,5 +54,5 @@ export default function* dataSaga() {
     yield takeLatest(FETCH_REQUEST, fetchDataSaga);
     yield takeLatest(FETCH_HOMEPAGE, fetchHomepage);
     yield takeLatest(POST_LOGIN, postlogin);
-    yield takeLatest(POST_LOGIN, postContact);
+    yield takeLatest(POST_CONTACT, postContact);
 }
