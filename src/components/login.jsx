@@ -4,7 +4,6 @@ import { TextField, Button, Typography, Container, Box, Link } from "@mui/materi
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
 
-  // Toggle between Login and Register
   const toggleAuthMode = () => setIsLogin(!isLogin);
 
   return (
@@ -22,7 +21,6 @@ function Login() {
           {isLogin ? "Login" : "Register"}
         </Typography>
 
-        {/* If Login Page */}
         {isLogin ? (
           <>
             <TextField fullWidth label="Email" margin="normal" />
@@ -38,7 +36,6 @@ function Login() {
             </Typography>
           </>
         ) : (
-          /* If Register Page */
           <>
             <TextField fullWidth label="Name" margin="normal" />
             <TextField fullWidth label="Email" margin="normal" />

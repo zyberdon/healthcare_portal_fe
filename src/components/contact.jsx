@@ -23,7 +23,7 @@ function Contact() {
           fullWidth
           label="Message"
           multiline
-          rows={4}  // Makes the message box larger
+          rows={4}   
           margin="normal"
         />
 
@@ -36,3 +36,6 @@ function Contact() {
 }
 
 export default Contact;
+
+
+// create a page for user profile using mui with - side drawer having route options for different pages, name of user at top , and page will have some information with cards

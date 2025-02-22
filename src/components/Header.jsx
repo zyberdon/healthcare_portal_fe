@@ -14,11 +14,11 @@ function Header(props) {
 
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             <Button color="inherit" component={Link} to="/">Home</Button>
+            <Button color="inherit" component={Link} to="/profile">Profile</Button>
             <Button color="inherit" component={Link} to="/services">Health Topics</Button>
             <Button color="inherit" component={Link} to="/services">Services</Button>
             <Button color="inherit" component={Link} to="/contact">Contact</Button>
           </Box>
-
           <Button color="inherit" component={Link} to="/login">
             Login
           </Button>
