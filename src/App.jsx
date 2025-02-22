@@ -7,7 +7,7 @@ import LocalRoutes from './routes.jsx'
 
 export const App = (props) => {
   const [message, setMessage] = useState({ opened: false, message: '' });
-  const { data, loading, error, loginStats } = useSelector((state) => state.dataReducer);
+  const { data, loading, error, loginStats, contactResp } = useSelector((state) => state.dataReducer);
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,6 +28,14 @@ export const App = (props) => {
       setMessage({ opened: true, message: msg })
     }
   }, [loginStats]);
+
+  useEffect(() => {
+    if (contactResp) {
+      let msg = contactResp.message
+      setMessage({ opened: true, message: msg })
+    }
+  }, [contactResp]);
+
 
 
   const handleClose = () => {

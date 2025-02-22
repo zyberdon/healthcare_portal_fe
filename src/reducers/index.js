@@ -1,11 +1,12 @@
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, FETCH_HOMEPAGE, GET_LOGIN, STORE_HOMEPAGE } from "../actions";
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, FETCH_HOMEPAGE, GET_LOGIN, STORE_HOMEPAGE, GET_CONTACT } from "../actions";
 
 const initialState = {
     data: null,
     loading: false,
     error: null,
     homepage: {},
-    loginStats: {}
+    loginStats: {},
+    contactResp: {}
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -21,6 +22,8 @@ const dataReducer = (state = initialState, action) => {
             return { ...state, homepage: action.payload };
         case GET_LOGIN:
             return { ...state, loginStats: action.payload };
+        case GET_CONTACT:
+            return { ...state, contactResp: action.payload };
         default:
             return state;
     }

@@ -38,9 +38,21 @@ function* postlogin(payload) {
 }
 
 
+function* postContact(payload) {
+    try {
+        const data = yield call(fetchApi, payload);
+        console.log(data)
+        yield put(getContact(data)); // Dispatch success action
+    } catch (error) {
+        yield put(getContact({ error: error.message })); // Dispatch failure action
+    }
+}
+
+
 // Saga Watcher Function
 export default function* dataSaga() {
     yield takeLatest(FETCH_REQUEST, fetchDataSaga);
     yield takeLatest(FETCH_HOMEPAGE, fetchHomepage);
     yield takeLatest(POST_LOGIN, postlogin);
+    yield takeLatest(POST_LOGIN, postContact);
 }
