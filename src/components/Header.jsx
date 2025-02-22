@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import { defaultConstant } from '../constants/commonComponent';
 
 function Header(props) {
   console.log(props)
@@ -9,18 +10,17 @@ function Header(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Healthcare Portal
+            {defaultConstant.HEALTHCAREPORTAL}
           </Typography>
 
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-            <Button color="inherit" component={Link} to="/">Home</Button>
-            {/* <Button color="inherit" component={Link} to="/profile">Profile</Button> */}
-            <Button color="inherit" component={Link} to="/healthtopics">Health Topics</Button>
-            <Button color="inherit" component={Link} to="/services">Services</Button>
-            <Button color="inherit" component={Link} to="/contact">Contact</Button>
+            <Button color="inherit" component={Link} to="/">{defaultConstant.HOME}</Button>
+            <Button color="inherit" component={Link} to="/healthtopics">{defaultConstant.HEALTHTOPICS}</Button>
+            <Button color="inherit" component={Link} to="/services">{defaultConstant.SERVICES}</Button>
+            <Button color="inherit" component={Link} to="/contact">{defaultConstant.CONTACT}</Button>
           </Box>
           <Button color="inherit" component={Link} to="/login">
-            Login
+            {defaultConstant.LOGIN}
           </Button>
         </Toolbar>
       </AppBar>

@@ -28,4 +28,7 @@ export const defaultConstant = {
     LOGINERROR: 'Login Error',
     REGISTERERROR: 'Register Error',
     LOGINERRORMSG: 'Invalid username or password',
+    SERVICES: 'Services',
+    HEALTHTOPICS: 'Health Topics',
+    HEALTHCAREPORTAL: 'Healthcare Portal'
 }
