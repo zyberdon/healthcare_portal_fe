@@ -52,9 +52,9 @@ function Profile() {
             <ListItem button component={Link} to="/">
               <ListItemText primary="Home" />
             </ListItem>
-            {/* <ListItem button component={Link} to="/profile">
-              <ListItemText primary="Profile" />
-            </ListItem> */}
+            <ListItem button component={Link} to="/dashboard">
+              <ListItemText primary="Dashboard" />
+            </ListItem>
             {/* <ListItem button component={Link} to="">
               <ListItemText primary="Settings" />
             </ListItem> */}
@@ -70,7 +70,7 @@ function Profile() {
         <Typography variant="h4" gutterBottom>
           Welcome, {userName}!
         </Typography>
-        
+
         <Grid container spacing={3}>
           {/* Card 1 - Personal Info */}
           <Grid item xs={12} sm={6}>
@@ -116,9 +116,9 @@ function Profile() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                ✅ Complete React project by Friday  
-                ✅ Renew Premium Subscription on March 15  
-                ✅ Doctor's Appointment on February 28  
+                ✅ Complete React project by Friday
+                ✅ Renew Premium Subscription on March 15
+                ✅ Doctor's Appointment on February 28
               </Typography>
             </AccordionDetails>
           </Accordion>

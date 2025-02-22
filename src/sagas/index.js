@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from "redux-saga/effects";
-import { FETCH_REQUEST, fetchSuccess, fetchFailure, FETCH_HOMEPAGE, storeHomepage, POST_LOGIN, getLogin, getContact, POST_CONTACT } from "../actions";
+import { FETCH_REQUEST, fetchSuccess, fetchFailure, FETCH_HOMEPAGE, storeHomepage, POST_LOGIN, getLogin, getContact, POST_CONTACT, POST_DASHBOARD, getDashboard } from "../actions";
 import { fetchApi } from '../constants/endpoints'
 // API Call Function
 // const fetchDataApi = async () => {
@@ -49,10 +49,22 @@ function* postContact(payload) {
 }
 
 
+function* postDashboard(payload) {
+    try {
+        const data = yield call(fetchApi, payload);
+        console.log(data)
+        yield put(getDashboard(data)); // Dispatch success action
+    } catch (error) {
+        yield put(getDashboard({ error: error.message })); // Dispatch failure action
+    }
+}
+
+
 // Saga Watcher Function
 export default function* dataSaga() {
     yield takeLatest(FETCH_REQUEST, fetchDataSaga);
     yield takeLatest(FETCH_HOMEPAGE, fetchHomepage);
     yield takeLatest(POST_LOGIN, postlogin);
     yield takeLatest(POST_CONTACT, postContact);
+    yield takeLatest(POST_DASHBOARD, postDashboard);
 }

@@ -9,6 +9,9 @@ export const GET_LOGIN = "GET_LOGIN";
 export const POST_CONTACT = "POST_CONTACT";
 export const GET_CONTACT = "GET_CONTACT";
 
+export const POST_DASHBOARD = "POST_DASHBOARD";
+export const GET_DASHBOARD = "GET_DASHBOARD";
+
 // Action Creators
 export const fetchRequest = (data) => ({ type: FETCH_REQUEST, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
 export const fetchSuccess = (data) => ({ type: FETCH_SUCCESS, payload: data });
@@ -22,3 +25,7 @@ export const getLogin = (data) => {
 
 export const postContact = (data) => ({ type: POST_CONTACT, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
 export const getContact = (data) => ({ type: GET_CONTACT, payload: data }); //data obj 
+
+
+export const postDashboard = (data) => ({ type: POST_DASHBOARD, payload: data }); //data obj should contain url and reqbody which inturn has body and req type
+export const getDashboard = (data) => ({ type: GET_DASHBOARD, payload: data }); //data obj 
