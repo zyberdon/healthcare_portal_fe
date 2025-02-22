@@ -1,4 +1,4 @@
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, FETCH_HOMEPAGE, GET_LOGIN, STORE_HOMEPAGE, GET_CONTACT } from "../actions";
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, FETCH_HOMEPAGE, GET_LOGIN, STORE_HOMEPAGE, GET_CONTACT, GET_DASHBOARD } from "../actions";
 
 const initialState = {
     data: null,
@@ -6,7 +6,8 @@ const initialState = {
     error: null,
     homepage: {},
     loginStats: {},
-    contactResp: {}
+    contactResp: {},
+    dashboard: [],
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -24,6 +25,8 @@ const dataReducer = (state = initialState, action) => {
             return { ...state, loginStats: action.payload };
         case GET_CONTACT:
             return { ...state, contactResp: action.payload };
+        case GET_DASHBOARD:
+            return { ...state, dashboard: action.payload };
         default:
             return state;
     }
