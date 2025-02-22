@@ -1,21 +1,63 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { TextField, Button, Typography, Container, Box, Link } from "@mui/material";
 
 function Login() {
+  const [isLogin, setIsLogin] = useState(true);
+
+  // Toggle between Login and Register
+  const toggleAuthMode = () => setIsLogin(!isLogin);
+
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form>
-        <label>Email:</label>
-        <input type="email" required />
-        <br />
-        <label>Password:</label>
-        <input type="password" required />
-        <br />
-        <button type="submit">Login</button>
-      </form>
-      <Link to="/">Back to Home</Link>
-    </div>
+    <Container maxWidth="xs">
+      <Box
+        sx={{
+          mt: 5,
+          p: 3,
+          boxShadow: 3,
+          borderRadius: 2,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h5" gutterBottom>
+          {isLogin ? "Login" : "Register"}
+        </Typography>
+
+        {/* If Login Page */}
+        {isLogin ? (
+          <>
+            <TextField fullWidth label="Email" margin="normal" />
+            <TextField fullWidth label="Password" type="password" margin="normal" />
+            <Button fullWidth variant="contained" sx={{ mt: 2 }}>
+              Login
+            </Button>
+            <Typography variant="body2" sx={{ mt: 2 }}>
+              New User?{" "}
+              <Link component="button" onClick={toggleAuthMode}>
+                Register
+              </Link>
+            </Typography>
+          </>
+        ) : (
+          /* If Register Page */
+          <>
+            <TextField fullWidth label="Name" margin="normal" />
+            <TextField fullWidth label="Email" margin="normal" />
+            <TextField fullWidth label="Phone Number" margin="normal" />
+            <TextField fullWidth label="Password" type="password" margin="normal" />
+            <TextField fullWidth label="Confirm Password" type="password" margin="normal" />
+            <Button fullWidth variant="contained" sx={{ mt: 2 }}>
+              Register
+            </Button>
+            <Typography variant="body2" sx={{ mt: 2 }}>
+              Already have an account?{" "}
+              <Link component="button" onClick={toggleAuthMode}>
+                Login
+              </Link>
+            </Typography>
+          </>
+        )}
+      </Box>
+    </Container>
   );
 }
 

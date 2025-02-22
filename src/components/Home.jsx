@@ -12,7 +12,7 @@ function Home() {
           </Typography>
 
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-            <Button color="inherit" component={Link} to="/services">Health Topics</Button>
+            <Button color="inherit" component={Link} to="/healthtopics">Health Topics</Button>
             <Button color="inherit" component={Link} to="/services">Services</Button>
             <Button color="inherit" component={Link} to="/contact">Contact</Button>
           </Box>
