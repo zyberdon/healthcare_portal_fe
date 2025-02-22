@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TextField, Button, Typography, Container, Box, Link } from "@mui/material";
 import { endpoints } from "../constants/endpoints";
 import { postLogin } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { defaultConstant } from "../constants/commonComponent";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
   const dispatch = useDispatch();
-  // const { loginStats } = useSelector((state) => state.login);
-  const { data, loading, error, loginStats } = useSelector((state) => state.dataReducer);
+  const { loginStats } = useSelector((state) => state.dataReducer);
   const navigate = useNavigate();
 
   const toggleAuthMode = () => setIsLogin(!isLogin);
@@ -56,7 +56,7 @@ function Login() {
       navigate("/login")
     }
 
-  }, [loginStats]);
+  }, [loginStats, navigate]);
 
 
   return (
@@ -71,7 +71,7 @@ function Login() {
         }}
       >
         <Typography variant="h5" gutterBottom>
-          {isLogin ? "Login" : "Register"}
+          {isLogin ? defaultConstant.LOGIN : defaultConstant.REGISTER}
         </Typography>
 
         {/* If Login Page */}
@@ -81,12 +81,12 @@ function Login() {
               <TextField fullWidth label="Email" id='email' margin="normal" />
               <TextField fullWidth label="Password" id='pass' type="password" margin="normal" />
               <Button type="submit" fullWidth variant="contained" sx={{ mt: 2 }}>
-                Login
+                {defaultConstant.LOGIN}
               </Button>
               <Typography variant="body2" sx={{ mt: 2 }}>
-                New User?{" "}
+                {`${defaultConstant.NEWUSER}?`}{" "}
                 <Link component="button" onClick={toggleAuthMode}>
-                  Register
+                  {defaultConstant.REGISTER}
                 </Link>
               </Typography>
             </>
@@ -98,12 +98,12 @@ function Login() {
               <TextField fullWidth label="Password" type="password" id="password" margin="normal" />
               <TextField fullWidth label="Confirm Password" type="password" id="confirmpassword" margin="normal" />
               <Button fullWidth type="submit" variant="contained" sx={{ mt: 2 }}>
-                Register
+                {defaultConstant.REGISTER}
               </Button>
               <Typography variant="body2" sx={{ mt: 2 }}>
-                Already have an account?{" "}
+                {defaultConstant.ALREADY_HAVE_ACCOUNT}{" "}
                 <Link component="button" onClick={toggleAuthMode}>
-                  Login
+                  {defaultConstant.LOGIN}
                 </Link>
               </Typography>
             </>

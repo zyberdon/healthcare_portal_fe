@@ -1,8 +1,8 @@
-import React from "react";
 import { TextField, Button, Typography, Container, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { endpoints } from "../constants/endpoints";
 import { postContact } from "../actions";
+import { defaultConstant } from "../constants/commonComponent";
 
 function Contact() {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ function Contact() {
         }}
       >
         <Typography variant="h5" gutterBottom>
-          Contact Us
+          {defaultConstant.CONTANTUS}
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField fullWidth id="name" label="Name" margin="normal" />
@@ -53,7 +53,7 @@ function Contact() {
           />
 
           <Button fullWidth type='submit' variant="contained" sx={{ mt: 2 }}>
-            Submit
+            {defaultConstant.SUBMIT}
           </Button>
         </form>
       </Box>
